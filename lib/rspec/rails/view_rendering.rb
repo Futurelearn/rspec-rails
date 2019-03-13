@@ -56,7 +56,7 @@ module RSpec
               template.identifier,
               EmptyTemplateHandler,
               :virtual_path => template.virtual_path,
-              :format => template.formats
+              :format => template.respond_to?(:format) ? template.format : template.formats
             )
           end
         end
